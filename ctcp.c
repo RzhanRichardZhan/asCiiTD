@@ -23,14 +23,14 @@ int main(int argc, char **argv){
   //4. Initiate connection//
   //////////////////////////
   i = connect(socket_id,(struct sockaddr *)&sock,sizeof(sock)); //connect
-  
-  printf("%d>",i);
-  char input[1024];
-  fgets(input,sizeof(input),stdin);
-  input[strlen(input)-1]=0;
-  printf("%s\n",input);
-  write(socket_id,input,strlen(input));
-    
+  while(1){
+    printf("%d>",i);
+    char input[1024];
+    fgets(input,sizeof(input),stdin);
+    input[strlen(input)-1]=0;
+    printf("<%s>\n",input);
+    write(socket_id,input,strlen(input));
+  }
   
   return 0;
 }

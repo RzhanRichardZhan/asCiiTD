@@ -2,9 +2,10 @@
 #include<netinet/in.h>
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 char * process(char * s);
 int main(){
-
+  
   int socket_id, socket_client;
   char buffer[256];
   int i,b;
@@ -32,10 +33,12 @@ int main(){
   ////////////////////////
     
     
-      
-  char input[1024];
-  read(socket_client,input,sizeof(input));
-  printf("Read: %s\n",input);
+  while(1){
+    char input[1024]="";
+    read(socket_client,input,1024);
+    printf("Read: %s\n",input);
+  }
+    
       
   
   //write(socket_client,"hello",6);
