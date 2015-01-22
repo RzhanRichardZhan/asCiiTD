@@ -1,17 +1,20 @@
-#include <sys/socket.h>
-#include <netinet/in.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-/*
+#include<unistd.h>
+#include<signal.h>
+int socket_id;
 static void sighandler(int signo){
   if (signo == SIGINT){
+    write(socket_id,"exit",strlen("exit"));
     exit(-1);
   }
 }
-*/
+	      
 int main(int argc, char **argv){
-  int socket_id;
+  signal(SIGINT,sighandler);
   char buffer[256];
   int i,b;
   ////////////////////////
