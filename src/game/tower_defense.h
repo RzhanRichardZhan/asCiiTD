@@ -15,6 +15,7 @@
 enum {TOWER, MONSTER, PATH, EMPTY}; //possible entities in a tile
 
 struct tile;
+ 
 
 typedef struct tower{
   int range; //manhattan distance from tower to potential site of impact
@@ -27,6 +28,7 @@ typedef struct monster{
 } monster;
 
 typedef struct path{
+  int id; //determines who is closest to the finish
   //int x, y;
   struct tile * next;//so monsters can go to next space in path
 } path;
